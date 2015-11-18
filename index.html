@@ -16,25 +16,26 @@
         <hgroup>
           
 <header>
-          <h1>A Raspberry Pi Thin Client Computing Environment</h1>
-  <br>
-          <h2>Design, Configuration, Installation, and Testing</h2>
+          <h1>A Raspberry Pi Thin Client Computing Environment
+            <br>
+            <br>
+          Design, Configuration, Installation, and Testing</h1>
           </header>
           
           <section>
           <article class="toparticle">
           
-          <p>This tutorial covers the process of planning, building, and testing a thin-client environment using Raspberry Pis.</p>
+          <p>This tutorial covers the process of planning, building, and testing a thin-client environment using the Raspberry Pi low-power computing platform.</p>
           <h2>Contents</h2>
-            <h3>1. Virtualization Overview</h3>
-          <ul style="list-style-type:circle">
+            <h3>1  <a href="#overview">Virtualization Overview</a></h3>
+          <ul style="list-style-type:disc">
             <li>What is virtualization?</li>
             <li>why RPiTC2?</li>
             <li>why KVM?</li>
           </ul>   
             
-            <h3>2. Planning your Deployment</h3>
-          <ul style="list-style-type:circle">
+            <h3>2  <a href="#planning">Planning your Deployment</a></h3>
+          <ul style="list-style-type:disc">
             <li>assess your needs</li>
             <li>calculate necessary hardware specifications</li>
             <li>plan your network topography</li>
@@ -42,8 +43,8 @@
             <li>stage your equipment</li>
           </ul> 
             
-              <h3>3. RPiTC2 Installation</h3>
-          <ul style="list-style-type:circle">
+              <h3>3  <a href="#installation">RPiTC2 Installation</a></h3>
+          <ul style="list-style-type:disc">
             <li>download</li>
             <li>extract</li>
             <li>install</li>
@@ -51,26 +52,26 @@
             <li>configure</li>
           </ul> 
             
-              <h3>4. Testing</h3>
-          <ul style="list-style-type:circle">
+              <h3>4  <a href="#testing">Testing</a></h3>
+          <ul style="list-style-type:disc">
             <li>thin client benchmark testing</li>
             <li>server benchmark testing</li>
           </ul> 
             
-            <h3>5. Conclusion</h3>
+            <h3>5  <a href="#conclusion">Conclusion</a></h3>
             
           </article>
           </section>
       
           <section>
           <aside class="topaside">
-          <h3>Did you know?</h3>
-          <p>You're not alone if you find Git intimidating. Git was originally created ten years ago by Linus Torvalds, the inventor of Linux, to track changes to the Linux kernel. Initially, it received a somewhat skeptical response, as even Google's engineers claimed it was "expressly designed to make [us] feel stupid."</p>
+          <h3>New to the Raspberry Pi? Start here.</h3>
+          <p>The Raspberry Pi has a fascinating history.</p>
           <figure>
           <iframe width="426" height="240"
-          src="https://www.youtube.com/embed/4XpnKHJAok8?autoplay=0">
+          src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0">
           </iframe>
-          <figcaption>Linus Torvalds explains Git to Google.</figcaption>
+          <figcaption>The history of the Raspberry Pi</figcaption>
           </figure>
           </aside>
           </section>
@@ -78,7 +79,7 @@
           <section>
           <article>
           
-          <h2>1. Virtualization Overview</h2>
+          <h2 id="overview">1. Virtualization Overview</h2>
             <h3>What is Virtualization?</h3>
          
           <p>The contemporary workplace relies on traditional workstation/file server computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files. The workstations do the computing, and the file server acts as a receptacle. This structure is inefficient, placing power-hungry workstations at every desk, creating a high degree of unused computing overhead (see figure 1).</p>
@@ -90,7 +91,7 @@
             <h3>Why KVM?</h3>
             <p>There are many commercial offerings in the hypervisor marketplace. Xen and KVM, by contrast, are open-source hypervisors that are as fully-featured as commercial equivalents offered by VMWare and Microsoft. For organizations running critical systems, enterprise-level support contracts are available from Citrix, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the Open Virtualization Alliance. For the limited scope of this project, we have chosen KVM.</p>
             
-            <h2>2. Planning your Deployment</h2>
+            <h2 id="planning">2. Planning your Deployment</h2>
             <h3>Assess your Needs</h3>
             <p>If you are creating your thin-client network at home, this section will be less important. If you are creating a test environment at work and are concerned about appropriate resource allocation, you should take care to plan your deployment using this guide.</p>
             <h3>Calculate Necessary Hardware Specifications</h3>
@@ -98,40 +99,158 @@
             <p>Note: about RAM and 32-bit processors</p>
             
             <h3>Plan your Network Topography</h3>
-            <p>As seen in figure 1b above, the minimum hardware requirements for a thin client network are:</p>
-            <ul style="list-style-type:circle">
+            
+           <p>As seen in figure 1b above, the minimum hardware requirements for a thin client network:</p>
+            
+            <ul style="list-style-type:disc">
             <li>An Ethernet or WiFi network attached to a router</li>
               <p>Note: wired vs. wireless connectivity and throughput</p>
             <li>A server</li>
             <li>At least one client</li>
           </ul> 
-          
-          </hgroup>
-      
-        <section>
-        <article>
-        <summary><b>Additonal Notes</b>
-        </summary>
-        <details>
-        <ul style="list-style-type:circle">
-        <li>It is extremely important that you are aware of how your <mark>RSA key</mark> works, where it is stored, and how to use it.</li>
-        <li>Git only works if you remember to use it locally as well as remotely. It's a way for you to track your own versions of documents internally, then, once you've shared your document, further track changes with collaborators.</li>
-        </details>
-        </article>
-        </section>
+            
+            <h3>Acquire your Equipment</h3>
+            <p>You should acquire a server that meets your initial testing needs, with 2GB of RAM per client. Note that this number is for initial testing purposes and the actual number of supported clients will increase during the final testing phase. You should acquire the minimum number of RPis you will need for initial testing, with the understanding that the number of RPis in use will increase during final testing. </p>
+            <p>This guide will not detail the configuration of your virtualization server. For our testing environment, we are using a Thinkserver TS140 with a quad-core 3.2 Ghz Xeon CPU and 16 GB of RAM, accompanied by one RPi. For a detailed guide on configuring KVM to run on CentOS 7, see http://jensd.be/207/linux/install-and-use-centos-7-as-kvm-virtualization-host</p>
+            <p>The minimum required equipment list is:</p>
+            <ul style="list-style-type:disc">
+            <li>1 server (64-bit processor, minimum of 8GB RAM)</li>
+            <li>1 RPi2 with power supply and case</li>
+            <li>1 formatted microSD card</li>
+              <li>1 staging computer running Windows Vista, 7, 8, or 10</li>
+              <li>USB keyboard</li>
+              <li>USB mouse</li>
+              <li>Computer monitor with HDMI output</li>
+              <li>HDMI cable</li>
+              
+            </ul> 
+            
+             <p>The following utilities are also needed:</p>
+            <ul style="list-style-type:disc">
+            <li>7-Zip</li>
+            <li>Win32imager</li>
+            </ul>
+            
+            <h3>Stage your Equipment</h3>
+            <p>Follow these steps:</p>
+            <ul style="list-style-type:disc">
+            <li>Power on your staging computer and open a web browser</li>
+            <li>Insert the formatted microSD card into the USB adapter, then insert the USB adapter into an available USB port on your workstation or laptop. Windows machines should mount the USB drive automatically. </li>
+              <p>NOTE: To download Win32diskimager, go here:
+               <br> http://sourceforge.net/projects/win32diskimager/files/latest/download</p>
+              <br>
+              <p>When prompted, click Save.</p>
+              
+            <li>Install Win32DiskImager. This will create a program group called Image Writer.</li>
+              <p>Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</p>
+              <li>Download and install 7_Zip by going here: http://www.7-zip.org/download.html</li>
+              <p>Note: when prompted, click Save File, then install 7-Zip.</p>
+              <li>Attach the USB keyboard and mouse to your RPi2</li>
+              <li>Attach a computer monitor to the RPi2 using the HDMI cable</li>
+              <p>Note: do not power on the RPi2 yet.</p>
+              
+              </ul> 
+              
+              <h2 id="installation">3. PRiTC2 Installation</h2>
+              <h3>Download</h3>
+            <ul style="list-style-type:disc">
+            <li>Using the browser you opened on your staging computer, download the RPiTC2 operating system from http://rpitc.blogspot.com/p/download.html</li>
+            <li>When prompted to open or save the RAR file, select Save.</li>
+              
+            </ul> 
+            
+                 <h3>Extract</h3>
+            <ul style="list-style-type:disc">
+            <li>Extract the RAR file you just downloaded using 7-Zip. </li>
+            <li>Select the path to the .rar file, then select an output path for the extracted files. Below, we are extracting to the Downloads folder.</li>
+              
+            </ul> 
+            
+              <h3>Install</h3>
+            <ul style="list-style-type:disc">
+            <li>Install the PRiTC2 operating system using Win32DiskImager.</li>
+            <li>Locate the path to the file you extracted in the previous step, then install the image on the MicroSD card.</li>
+              <p>Note: see http://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program </p>
+              
+            </ul> 
+            
+                <h3>Boot</h3>
+            <ul style="list-style-type:disc">
+            <li>Unmount or eject your MicroUSB adapter and unplug it from your staging computer. </li>
+            <li>Boot your RPiTC2 by inserting the power adapter. </li>
+              <p>Note: the RPi2 does not have a power switch and must be powered off and on by attaching and removing the power supply.</p>
+              
+            </ul> 
+            
+              <h3>Configure</h3>
+            <ul style="list-style-type:disc">
+            <li>Once you have booted the RPiTC2 operating system, you will see the default desktop (see figure 3) </li>
+            <li>To access configuration settings and automatically start a virtual desktop on startup, select Session and Startup from the Settings menu</li>
+              </ul> 
+              <p>Most of these settings are typical for GUI-enabled Linux distributions. However, the RPiTC2 operating system contains two scripts that help automate the startup and connection process for accessing your virtual desktop.
+                <br>
+                Autostart automatically starts a connection client.
+                <br>
+Keep Me Up! Automatically starts a connection client and maintains the connection.
+                <br>
+To automatically start and maintain your connectivity to your virtual desktop, you must configure these two scripts.
+
+              </p>
+            
+             <h2 id="testing">4. Testing</h2>
+              <h3>Thin Client Testing</h3>
+            <ul style="list-style-type:disc">
+            <li>If using multiple clients, begin by connecting all clients concurrently using the RAM allocation created in step 1</li>
+            <li>Determine whether the CPU and RAM of the server can handle significant loads by playing back a remote video file of known bitrate and resolution through each client. This will test the server’s ability to continuously buffer and relay video to each client, a task which is computationally intensive, and which uses significant amounts of RAM. </li>
+              <li>If there are no performance problems, re-allocate RAM for each client by removing 512MB. Remember that we originally configured our clients to run on 2GB of RAM, so they will now be using 1.5GB of RAM. Retest the clients using the above method. </li>
+              <li>If there are still no noticeable performance issues, reduce the amount of RAM by a further 256MB, testing after each reduction. Once performance issues arise, add 256MB and re-allocate. This will be the final amount of RAM used in deployment.</li>
+              
+            </ul> 
+            
+            <h3>Server Testing</h3>
+            <p> On the server side, we are beginning with 8GB of RAM. We want to determine whether heavy client loads will degrade the performance of the server and reduce its ability to operate and allow for human interaction. </p>
+            <p>To do this, we will simulate several typical administration tasks to run concurrently with the client testing method described above. </p>
+            <ul style="list-style-type:disc">
+            <li>Begin by running the video playback test for all attached clients, as above.</li>
+            <li>Then connect to your server using ssh and run some common administrative tasks:</li>
+              <ul style="list-style-type:circle">
+              <li>Backup and recovery of large numbers of files</li>
+              <li>Parsing security logs</li>
+                <li>Patching and updating</li>
+                <li>Disk health checks</li>
+              
+            </ul> 
+            </ul> 
+              
+              <p> If these tasks cannot be carried out efficiently while clients are placing the server under heavy load, we have options for increasing that performance. These options, in increasing order of cost and complexity, are as follows:</p>
+              <ul style="list-style-type:disc">
+              <li>Increase server RAM allocation and decrease number of clients</li>
+              <li>Increase server RAM allocation and decrease client RAM allocation</li>
+                <li>Increase server RAM by installing additional RAM</li>
+                <li>Increase server RAM by installing additional RAM and increase disk access times by changing hard drive type or configuration and/or adding RAID capability</li>
+              
+           </ul>
+              
+              <p>It is up to you to determine which of these methods is most suitable for you based on your budget.</p>
+              
+              <h2 id="conclusion">5. Conclusion</h2>
+              <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable. The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p>
+            
+            
+            </hgroup>
   
       </main>
     </body>
   
         <section>
         <footer>
+          
         <p>&copy; 2015 Morgan Lang</p>
         <nav>
-        <a href="https://github.com/morgan-lang/">My GitHub</a>
-        <a href="http://www.w3schools.com/html/html5_semantic_elements.asp">W3School's HTML Semantics Page</a>
-        <a href="mailto:mhl21@uw.edu">Email</a>
+        <a href="https://github.com/morgan-lang/">My GitHub Repositories</a>
         </nav>
         </footer>
+         
         </section>
 
 </html>

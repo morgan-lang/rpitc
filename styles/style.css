@@ -17,10 +17,12 @@ select {
 }
 
 h1 {
+  background-color: dodgerblue;
   font-size: 3rem;
   font-weight: 600;
-  line-height: 3.5rem;
+  line-height: 2.5rem;
   color: white;
+  padding: .5rem .5rem .5rem 1rem;
 }
 
 h2 {
@@ -29,14 +31,15 @@ h2 {
   font-weight: 600;
   line-height: 2.5rem;
   color: white;
+  padding: 3rem 1rem 3rem 1rem;
 }
 
 h3 {
-  background-color: dodgerblue;
+  background-color: skyblue;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 2rem;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   color: white;
 }
 
@@ -75,7 +78,7 @@ header {
   padding:1rem;
   clear:both;
   float:left;
-  margin-top: 18rem;
+  margin-top: 17rem;
   margin-bottom: .5rem;
 }
 
@@ -114,7 +117,7 @@ li {
   float:right;
   padding:1rem;
   background-color:#FFFFFF;
-  margin-top:18rem;
+  margin-top:17rem;
   margin-left:.5rem;
   border:.1rem solid #333333;
   box-shadow:0rem 0rem .1rem .1rem #333333;
@@ -133,13 +136,13 @@ aside {
 
 footer {
   width:100%;
-  float:right;
-  padding:1rem;
-  background-color:#FFFFFF;
-  margin-top:.5rem;
-  margin-left:.5rem;
+  background-color:dodgerblue;
   border:.1rem solid #333333;
-  box-shadow:0rem 0rem .1rem .1rem #333333;
+  box-shadow: 0rem 0rem .1rem .1rem #333333;
+  padding:1rem;
+  float:left;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 a:link {
