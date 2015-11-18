@@ -17,24 +17,27 @@ select {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 600;
-  line-height: 5.1rem;
-  color: #333333;
+  line-height: 3.5rem;
+  color: white;
 }
 
 h2 {
-  font-size: 2.5rem;
+  background-color: dodgerblue;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 2.6rem;
-  color: #333333;
+  line-height: 2.5rem;
+  color: white;
 }
 
 h3 {
-  font-size: 2rem;
+  background-color: dodgerblue;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 2.1rem;
-  color: #333333;
+  line-height: 2rem;
+  padding: 1rem 1rem 1rem 1rem;
+  color: white;
 }
 
 code {
@@ -43,6 +46,7 @@ code {
   line-height: 2.1rem;
   color: #333333;
 }
+
 p {
   font-size: 1.5rem;
   font-weight: 400;
@@ -50,12 +54,38 @@ p {
   color: #333333;
 }
 
-article {
-  width:50%;
+header {
+  width:100%;
+  background-color:dodgerblue;
+  border:.1rem solid #333333;
+  box-shadow: 0rem 0rem .1rem .1rem #333333;
+  padding:1rem;
+  clear:both;
+  float:left;
+  position: fixed;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.toparticle {
+  width:45%;
   background-color:#FFFFFF;
   border:.1rem solid #333333;
   box-shadow: 0rem 0rem .1rem .1rem #333333;
   padding:1rem;
+  clear:both;
+  float:left;
+  margin-top: 18rem;
+  margin-bottom: .5rem;
+}
+
+article {
+  width:45%;
+  background-color:#FFFFFF;
+  border:.1rem solid #333333;
+  box-shadow: 0rem 0rem .1rem .1rem #333333;
+  padding:1rem;
+  clear:both;
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
@@ -78,6 +108,17 @@ li {
 }
 
 /*Minor components*/
+
+.topaside {
+  width:45%;
+  float:right;
+  padding:1rem;
+  background-color:#FFFFFF;
+  margin-top:18rem;
+  margin-left:.5rem;
+  border:.1rem solid #333333;
+  box-shadow:0rem 0rem .1rem .1rem #333333;
+}
 
 aside {
   width:45%;

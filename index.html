@@ -1,19 +1,13 @@
-<!--This is an HTML5 document by Morgan Lang, completed and submitted as "Assignment 1" for The University of Washington's HTML5 100B class, Fall 2015. Instructor: Cheri Allen.-->
-<!--Let's try that again with a different format.
-Morgan Lang
-Assignment 1, due by Thurs, Oct 15th @ 8AM
-HTML5 100B, Fall 2015
-Instructor: Cheri Allen
-To preview this page, use this URL: https://htmlpreview.github.io/?https://github.com/morgan-lang/SemanticTags/blob/master/index.html-->
+<!--This is an HTML5 document by Morgan Lang, completed and submitted as a first-quarter portfolio project for my Professional Technical Writing class.-->
 
-<time datetime="2015-10-09 13:37"></time>
+<time datetime="2015-11-18 9:37"></time>
 
 <!DOCTYPE html>
 <html>
   
   <head>
     <meta charset="UTF-8">
-      <title>Week 1 Assignment: Semantic Tags</title>
+      <title>A Raspberry Pi Thin Client Computing Environment</title>
         <link rel="stylesheet" type="text/css" href="./styles/style.css">
   </head>
   
@@ -21,35 +15,55 @@ To preview this page, use this URL: https://htmlpreview.github.io/?https://githu
       <main>
         <hgroup>
           
-          <section>
-<!--I borrowed(?) stole(?) this part from this handy forum posting                              http://stackoverflow.com/questions/2000656/using-href-links-inside-option-tag
-because I couldn't figure out how to make the select tag useful on my own. 
-My intention isn't to plagiarize, just to make it functional. Hope that's OK.-->
-          <select name="Links to useful resources for this class" onchange="location = this.options[this.selectedIndex].value;">
-          <option value="#">Links to useful resources for this class</option>
-          <option value="https://canvas.uw.edu/courses/1019863">Canvas</option>
-          <option value="https://uw-html5.hipchat.com/home">HipChat</option>
-          <option value=" http://uweoconnect.extn.washington.edu/html5-100">Connect</option>
-          </select>
-          </section>
+<header>
+          <h1>A Raspberry Pi Thin Client Computing Environment</h1>
+  <br>
+          <h2>Design, Configuration, Installation, and Testing</h2>
+          </header>
           
           <section>
-          <article>
-          <header>
-          <h1>Week 1: Notes to self.</h1>
-          </header>
-          <p>This document will serve as a mini-braindump for some of the things I've learned so far. Git, in particular, is an unfamiliar way for me to think about things, and I want to remind myself of the basics. As someone who is also pursuing a certificate in Technical Writing, I definitely need to get bitter at git. I mean <em>better.</em></p>
-          <h3>Git and GitHub Overview</h3>
+          <article class="toparticle">
+          
+          <p>This tutorial covers the process of planning, building, and testing a thin-client environment using Raspberry Pis.</p>
+          <h2>Contents</h2>
+            <h3>1. Virtualization Overview</h3>
           <ul style="list-style-type:circle">
-            <li>Git is a version control system, a method of interacting with documents (computer code, typically) that allows single or multiple authors to foreground changes made to those documents. Different versions of documents can then be easily compared and the authorship of version's changes can be easily ascribed.</li>
-            <li>GitHub, although wholly dependent upon and interrelated with Git, should be defined separately. It is a repository for files that are being manipulated using Git. It serves both as a public and private repository, allowing its users to collaborate and share documents and code with each other and with the world, if they choose.</li>
-            <li>It is possible to Git without GitHub, either locally or using a third-party host, but becasue GitHub is designed to work hand-in-glove with Git, most people choose to use GitHub.</li>
-          </ul>     
+            <li>What is virtualization?</li>
+            <li>why RPiTC2?</li>
+            <li>why KVM?</li>
+          </ul>   
+            
+            <h3>2. Planning your Deployment</h3>
+          <ul style="list-style-type:circle">
+            <li>assess your needs</li>
+            <li>calculate necessary hardware specifications</li>
+            <li>plan your network topography</li>
+            <li>acquire your equipment</li>
+            <li>stage your equipment</li>
+          </ul> 
+            
+              <h3>3. RPiTC2 Installation</h3>
+          <ul style="list-style-type:circle">
+            <li>download</li>
+            <li>extract</li>
+            <li>install</li>
+            <li>boot</li>
+            <li>configure</li>
+          </ul> 
+            
+              <h3>4. Testing</h3>
+          <ul style="list-style-type:circle">
+            <li>thin client benchmark testing</li>
+            <li>server benchmark testing</li>
+          </ul> 
+            
+            <h3>5. Conclusion</h3>
+            
           </article>
           </section>
       
           <section>
-          <aside>
+          <aside class="topaside">
           <h3>Did you know?</h3>
           <p>You're not alone if you find Git intimidating. Git was originally created ten years ago by Linus Torvalds, the inventor of Linux, to track changes to the Linux kernel. Initially, it received a somewhat skeptical response, as even Google's engineers claimed it was "expressly designed to make [us] feel stupid."</p>
           <figure>
@@ -63,41 +77,35 @@ My intention isn't to plagiarize, just to make it functional. Hope that's OK.-->
           
           <section>
           <article>
-          <header>
-          <h3>Git: essential commands</h3>
-          </header>
-          <p>The following is for my own benefit as I repeatedly forget the correct order of git commands when committing changes to GitHub.</p>
-          <h4>Steps for committing changes to GitHub:</h4>
-          <ul style="list-style-type:circle">
-            <li>Make local changes to your document (for our purposes, we assume it's <em>index.html)</em></li>
-            <li>In GitBash or your local bash equivalent, make sure you're working in the correct branch by typing the following: <b><code>git checkout [yourbranchname]</code></b>. Yes, I have multiple branches already because I am dumb.   </li>
-            <li>Stage the file you want to commit by typing the following: <code><b>git add index.html</b></code></li>
-            <li>Commit the document with a brief comment by typing the following: <code><b>git commit -m "note your changes inside these quotation marks"</b></code></li>
-            <li>Push the committed, commented document to the correct branch on GitHub by typing the following: <code><b>git push -u origin [yourremotebranchname]</b></code>. If pushing to the "master," you would type: <code><b>git push -u origin master.</b></code>To follow up, run <code><b>git status</b></code> and then double-check your <a href="https://github.com/morgan-lang/">GitHub repositories.</a></li>
-            <li>For this assignment, I first created the repository <b>SemanticTags</b> through GitHub's web interface, then used the following commands in GitBash: 
-              <br>
-              <b><code>git remote add origin git@github.com:morgan-lang/SemanticTags.git</code></b> 
-              <br>followed by
-              <br><b><code>git add index.html</code></b>
-              <br>followed by
-              <br><b><code>git commit -m "added preview link"</code></b>
-              <br>and finally by 
-              <br><b><code>git push -u origin master</code></b> 
-              <br>The first command identified <b>SemanticTags</b> as a valid origin (remote) repository, the second command staged <em>index.html</em>, the third command "committed" the changed document with a comment regarding its altered content, and the final "push" command finally uploaded it to github, tracking its changes.
-              <br>
-            <h3>NOTE: to publish your work to Github's gh-pages, use the following sequence:</h3>
-              <br><b><code>git add .</code></b>
-              <br><b><code>git commit -m "merging to gh-pages"</code></b>
-              <br><b><code>git checkout gh-pages</code></b> 
-              <br><b><code>git merge master</code></b>
-              <br><b><code>git checkout master</code></b>
-              <br><b><code>git push -u origin master</code></b> 
-              <br><b><code>git push -u origin master:gh-pages</code></b> 
-            </li>
-          </ul>     
-          </article>
-          </section>
-          </header>
+          
+          <h2>1. Virtualization Overview</h2>
+            <h3>What is Virtualization?</h3>
+         
+          <p>The contemporary workplace relies on traditional workstation/file server computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files. The workstations do the computing, and the file server acts as a receptacle. This structure is inefficient, placing power-hungry workstations at every desk, creating a high degree of unused computing overhead (see figure 1).</p>
+            <p>Virtualization refers to the process of abstracting and presenting a virtual representation of computer hardware in order to allow a centralized server (called a hypervisor) to simultaneously divide its heavy computing power between multiple external, low-power computers called thin clients, each of which interacts with the virtual hardware allocated to it. This allows the server to run all of the computing tasks and allows the client to maintain a passive role. This centralizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is the most power-efficient way to provide computing resources to an organization (see figure 2).</p>
+            
+            <h3>Why RPiTC2?</h3>
+            <p>The <strong>Raspberry Pi</strong> leverages the low cost and low power consumption of ARM-processor-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry GUIs. RpiTC's solution is to use the Pi as a thin client, offloading the computing power to a hypervisor.</p>
+            <p>Because the Pi is so inexpensive and RpiTC2 is free and open-source, the savings over even the least expensive commercially-available thin clients are tremendous. For large enterprises buying in volume, the cost of the Pi is low enough to be considered disposable. For users who need smaller scale deployments, Pis represent the most cost-effective way to move to a thin-client computing environment.</p>
+            <h3>Why KVM?</h3>
+            <p>There are many commercial offerings in the hypervisor marketplace. Xen and KVM, by contrast, are open-source hypervisors that are as fully-featured as commercial equivalents offered by VMWare and Microsoft. For organizations running critical systems, enterprise-level support contracts are available from Citrix, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the Open Virtualization Alliance. For the limited scope of this project, we have chosen KVM.</p>
+            
+            <h2>2. Planning your Deployment</h2>
+            <h3>Assess your Needs</h3>
+            <p>If you are creating your thin-client network at home, this section will be less important. If you are creating a test environment at work and are concerned about appropriate resource allocation, you should take care to plan your deployment using this guide.</p>
+            <h3>Calculate Necessary Hardware Specifications</h3>
+            <p>There are two main computing resources that need to be carefully allocated in a virtual environment: RAM and processor power. Of the two, RAM is significantly more important, and will determine the absolute limit of virtual hosts possible. As a general rule, you should acquire and install the most RAM you can afford on your server. In our lab, we are working with a Thinkserver TS140, which has a maximum RAM capacity of 32GB. If we want each of our thin clients to use 2GB of RAM, and we want to reserve 8GB for the server to use, you can see that we can run a maximum of 4 thin clients. This is a very conservative allocation plan that will ensure that a large amount of overhead is available. For an initial testing environment, this is fine. As you progress into final testing stages, you will begin optimizing resources and incrementally increasing the number of clients to achieve the best balance of client and server performance.</p>
+            <p>Note: about RAM and 32-bit processors</p>
+            
+            <h3>Plan your Network Topography</h3>
+            <p>As seen in figure 1b above, the minimum hardware requirements for a thin client network are:</p>
+            <ul style="list-style-type:circle">
+            <li>An Ethernet or WiFi network attached to a router</li>
+              <p>Note: wired vs. wireless connectivity and throughput</p>
+            <li>A server</li>
+            <li>At least one client</li>
+          </ul> 
+          
           </hgroup>
       
         <section>
