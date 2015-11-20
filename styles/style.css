@@ -7,6 +7,21 @@ html {
 
 /*Major components*/
 
+.numberCircle {
+    border-radius: 50%;
+
+    width: 3rem;
+    height: 3rem;
+    padding: .4rem;
+
+    background: #fff;
+    border: .1rem solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 2.5rem Arial, sans-serif;
+}
+
 select {
   font-size: 2rem;
   font-weight: 600;
