@@ -44,7 +44,7 @@
             <li>server benchmark testing</li>
           </ul> 
             
-            <h3><a href="#conclusion">④ Conclusion</a></h3>
+            <h3><a href="#conclusion">④ Next Steps</a></h3>
             
           </article>
       
@@ -95,7 +95,6 @@
             
             <ul style="list-style-type:disc">
             <li>An Ethernet or WiFi network attached to a router</li>
-              <p>Note: wired vs. wireless connectivity and throughput</p>
             <li>A server</li>
             <li>At least one client</li>
           </ul> 
@@ -134,15 +133,13 @@
             <li>Insert the formatted microSD card into the USB adapter, then insert the USB adapter into an available USB port on your workstation or laptop. Windows machines should mount the USB drive automatically. </li>
             <li><a href="http://sourceforge.net/projects/win32diskimager/files/latest/download" target="_blank">Download Win32diskimager</a>. When prompted, select Save.
              </li>  
-            <li>Install Win32DiskImager. This will create a program group called Image Writer.</li>
+            <li>Install Win32DiskImager. This will create a program group called Image Writer. Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</li>
+              <li><a href="http://www.7-zip.org/download.html" target="_blank">Download and install 7_Zip</a>. Note: when prompted, click Save File, then install 7-Zip.</li>
               
-              <p>Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</p>
-              <li><a href="http://www.7-zip.org/download.html" target="_blank">Download and install 7_Zip</a>.</li>
-              <p>Note: when prompted, click Save File, then install 7-Zip.</p>
               
               <li>Attach the USB keyboard and mouse to your RPi2.</li>
-              <li>Attach a computer monitor to the RPi2 using the HDMI cable.</li>
-              <p>Note: do not power on the RPi2 yet.</p>
+              <li>Attach a computer monitor to the RPi2 using the HDMI cable. Note: do not power on the RPi2 yet.</li>
+              
               
               </ul> 
               
@@ -164,16 +161,15 @@
               <h3>Install</h3>
             <ul style="list-style-type:disc">
             <li>Install the PRiTC2 operating system using Win32DiskImager.</li>
-            <li>Locate the path to the file you extracted in the previous step, then install the image on the MicroSD card.</li>
-              <p>Note: see <a href="http://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program" target="_blank">this useful information regarding extraction and installation of images to RPis</a>. </p>
+            <li>Locate the path to the file you extracted in the previous step, then install the image on the MicroSD card.Note: see <a href="http://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program" target="_blank">this useful information regarding extraction and installation of images to RPis</a>.</li>
+              
               
             </ul> 
             
                 <h3>Boot</h3>
             <ul style="list-style-type:disc">
             <li>Unmount or eject your MicroUSB adapter and unplug it from your staging computer. </li>
-            <li>Boot your RPiTC2 by inserting the power adapter. </li>
-              <p>Note: the RPi2 does not have a power switch and must be powered off and on by attaching and removing the power supply.</p>
+            <li>Boot your RPiTC2 by inserting the power adapter. Note: the RPi2 does not have a power switch and must be powered off and on by attaching and removing the power supply. </li>
               
             </ul> 
             
@@ -207,14 +203,8 @@
             <p>To do this, we will simulate several typical administration tasks to run concurrently with the client testing method described above. </p>
             <ul style="list-style-type:disc">
             <li>Begin by running the video playback test for all attached clients, as above.</li>
-            <li>Then connect to your server using ssh and run some common administrative tasks:</li>
-              <ul style="list-style-type:circle">
-              <li>Backup and recovery of large numbers of files</li>
-              <li>Parsing security logs</li>
-                <li>Patching and updating</li>
-                <li>Disk health checks</li>
-              
-            </ul> 
+            <li>Then connect to your server using ssh and run some common administrative tasks, such as backup and recovery, parsing logs, patching and updating, and disk health checks.</li>
+           
             </ul> 
               
               <p> If these tasks cannot be carried out efficiently while clients are placing the server under heavy load, we have options for increasing that performance. These options, in increasing order of cost and complexity, are as follows:</p>
@@ -228,8 +218,10 @@
               
               <p>It is up to you to determine which of these methods is most suitable for you based on your budget.</p>
               
-              <h2 id="conclusion">④ Conclusion</h2>
-              <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable. The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p>
+              <h2 id="conclusion">④ Next Steps</h2>
+              <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable.</p>
+          <p>The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p> 
+          <p>This guide has provided the foundation for exploring the Raspberry Pi, RPiTC, and virtualization. Use it as a starting point for exploring your own hypervisor and thin-client solutions.</p>
           </article>
             
             
