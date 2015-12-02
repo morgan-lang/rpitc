@@ -8,16 +8,6 @@ body {
   background-image: url(../images/rpi-glamour-shot.png)
 }
 
-
-select {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.1rem;
-  color: #333333;
-  
-  
-}
-
 h1 {
   background-color: #1469CC;
   font-size: 3rem;
@@ -57,13 +47,6 @@ h3 {
   opacity: .9;
 }
 
-
-code {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.1rem;
-  color: #333333;
-}
 .asideparagraph {
   font-family: 'Lora', serif;
   font-size: 1.3rem;
@@ -82,8 +65,6 @@ p {
   color: black;
   opacity: .9;
 }
-
-
 
 header {
   width:100%;
@@ -119,7 +100,7 @@ article {
 
 
 .mainarticle {
-  width:75%;
+  width:80%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   margin-top: 0;
@@ -131,7 +112,7 @@ article {
 
 li {
   font-family: 'Lora', serif;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 2.9rem;
   color: black;
