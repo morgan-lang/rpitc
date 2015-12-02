@@ -5,6 +5,7 @@ html {
 
 body {
   margin-top: .5rem; 
+  background-image: url(../images/rpi-glamour-shot.png)
 }
 
 
@@ -23,6 +24,7 @@ h1 {
   font-weight: 700;
   line-height: 3.1rem;
   color: white;
+  opacity: .9;
   
 }
 
@@ -32,6 +34,7 @@ h1 {
   font-weight: 700;
   line-height: 2.1rem;
   color: white;
+  opacity: .9;
 }
 
 h2 {
@@ -39,8 +42,9 @@ h2 {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 2.6rem;
-  color: white;
+  color: black;
   padding: 1rem .5rem 1rem .5rem;
+  opacity: .9;
 }
 
 h3 {
@@ -49,7 +53,8 @@ h3 {
   font-weight: 700;
   line-height: 2.1rem;
   padding: .5rem .5rem .5rem .5rem;
-  color: white;
+  color: black;
+  opacity: .9;
 }
 
 
@@ -64,7 +69,8 @@ p.asideparagraph {
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.6rem;
-  color: #324A65;
+  color: black;
+  opacity: .9;
  
 }
 
@@ -73,7 +79,8 @@ p {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.8rem;
-  color: #324A65;
+  color: black;
+  opacity: .9;
 }
 
 
@@ -86,6 +93,7 @@ header {
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
+  opacity: .9;
 }
 
 .toparticle {
@@ -95,10 +103,7 @@ header {
   float:left;
   margin-top: 1rem;
   margin-bottom: .5rem;
-  border-style: solid;
-  border-width: 0 .2rem .2rem 0;
-  border-color: lightgray;
-  border-radius: 1rem;
+
 }
 
 article {
@@ -108,20 +113,28 @@ article {
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
-  border-style: solid;
-  border-width: 0 .2rem .2rem 0;
-  border-color: lightgray;
-  border-radius: 1rem;
+  opacity: .9;
+
 }
 
-/*Nav and lists*/
+
+.mainarticle {
+  width:75%;
+  background-color:#FFFFFF;
+  padding: .1rem .5rem 0 0;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  opacity: .9;
+
+}
 
 
 li {
   font-size: 1.7rem;
   font-weight: 400;
   line-height: 1.8rem;
-  color: #333333;   
+  color: #333333;
+  opacity: .9;
 }
 
 
@@ -136,6 +149,7 @@ li {
   border-width: .2rem;
   border-color: lightgray;
   border-radius: 1rem;
+  opacity: .9;
 }
 
 aside {
@@ -145,6 +159,12 @@ aside {
   background-color:#FFFFFF;
   margin-top:.5rem;
   margin-left:.5rem;
+  opacity: .9;
+}
+
+figure {
+  margin-left: 0;
+  opacity: .9;
 }
 
 footer {
@@ -155,18 +175,21 @@ footer {
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
+  opacity: .9;
 }
 
 a:link {
   text-decoration: none;
-  color: #1469CC;
+  color: black;
   font-weight: 700;
+  
 }
 
 a:visited {
     text-decoration: none;
-    color: #1469CC;
+    color: black;
     font-weight: 700;
+
 }
 
 a:hover {
@@ -176,8 +199,9 @@ a:hover {
 }
 
 img { 
+  clear: both;
   width: 30rem;
-  padding: 1rem 0 1rem 1rem;
+  padding: .5rem 0 .5rem .5rem;
 
 }
 
@@ -189,6 +213,7 @@ h4 {
   padding: 1rem .5rem 1rem .5rem;
   color: white;
   border-radius: 1rem;
+  opacity: .9;
 }
 
 h5 {  
@@ -199,5 +224,6 @@ h5 {
   padding: .5rem .5rem .5rem .5rem;
   color: white;
   border-radius: 1rem;
+  opacity: .9;
 }
 

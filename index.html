@@ -50,23 +50,22 @@
       
           <aside class="topaside">
           <h4>New to the Raspberry Pi? Start here.</h4>
-          <p class="asideparagraph">The Raspberry Pi has a fascinating history.</p>
           <figure>
-          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="426" height="240" align="left">
+          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="426" height="240">
           </iframe>
-          <figcaption>The history of the Raspberry Pi</figcaption>
+          <figcaption>Introduction and overview of the Raspberry Pi</figcaption>
           </figure>
             
-             <h4>Virtualization Overview</h4>
+             <h4>New to Virtualization? Start here.</h4>
             <h5>What is Virtualization?</h5>
          
           <p class="asideparagraph">Typical work environments still rely on traditional workstation/server computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files.</p> 
             <p class="asideparagraph">In this typical scenario, the workstations do the computing, and the file server acts as a storage receptacle. This structure is inefficient, placing power-hungry workstations at every desk and creating a high degree of unused computing overhead.</p>
-            <img src="./images/workstation-network-blue.png" alt="diagram of power-hungry workstation environment" align="right">
+            <p><img src="./images/workstation-network-blue.png" alt="diagram of power-hungry workstation environment" align="right"></p>
             <p class="asideparagraph">Virtualization refers to the process of abstracting and presenting a virtual representation of computer hardware.</p> 
             <p class="asideparagraph">In our thin-client environment, this is done in order to allow a centralized server (called a hypervisor) to simultaneously divide its heavy computing power between multiple external, low-power computers called thin clients, each of which interacts with the virtual hardware allocated to it.</p>
             <p class="asideparagraph">This structure allows the server to run all of the computing tasks and allows the client to maintain a passive role. This centralizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is the most power-efficient way to provide computing resources to an organization</p>
-            <img src="./images/rpitc-network-blue.png" alt="diagram of power-efficient rpitc environment" align="right">
+            <p><img src="./images/rpitc-network-blue.png" alt="diagram of power-efficient rpitc environment" align="right"></p>
             
             <h5>Why RPiTC2?</h5>
             <p class="asideparagraph">The <strong>Raspberry Pi</strong> leverages the low cost and low power consumption of ARM-processor-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry GUIs. RpiTC's solution is to use the Pi as a thin client, offloading the computing power to a hypervisor.</p>
@@ -74,6 +73,7 @@
             <h5>Why KVM?</h5>
             <p class="asideparagraph">There are many commercial offerings in the hypervisor marketplace. Xen and KVM, by contrast, are open-source hypervisors that are as fully-featured as commercial equivalents offered by VMWare and Microsoft. For organizations running critical systems, enterprise-level support contracts are available from Citrix, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the Open Virtualization Alliance. For the limited scope of this project, we have chosen KVM.</p>
           </aside>
+
           
           <article>
           
@@ -122,6 +122,9 @@
             <li>7-Zip</li>
             <li>Win32imager</li>
             </ul>
+        </article>
+        
+        <article class="mainarticle">
             
             <h3>Stage your Equipment</h3>
             <p>Follow these steps:</p>
@@ -129,12 +132,13 @@
             <li>Power on your staging computer and open a web browser</li>
             <li>Insert the formatted microSD card into the USB adapter, then insert the USB adapter into an available USB port on your workstation or laptop. Windows machines should mount the USB drive automatically. </li>
             <li><a href="http://sourceforge.net/projects/win32diskimager/files/latest/download" target="_blank">Download Win32diskimager</a>. When prompted, select Save.
-             </li>
-              
+             </li>  
             <li>Install Win32DiskImager. This will create a program group called Image Writer.</li>
+              
               <p>Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</p>
               <li><a href="http://www.7-zip.org/download.html" target="_blank">Download and install 7_Zip</a>.</li>
               <p>Note: when prompted, click Save File, then install 7-Zip.</p>
+              
               <li>Attach the USB keyboard and mouse to your RPi2.</li>
               <li>Attach a computer monitor to the RPi2 using the HDMI cable.</li>
               <p>Note: do not power on the RPi2 yet.</p>
@@ -225,6 +229,8 @@
               
               <h2 id="conclusion">④ Conclusion</h2>
               <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable. The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p>
+          </article>
+            
             
         <footer>
           
