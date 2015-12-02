@@ -155,15 +155,15 @@ li {
 aside {
   width:45%;
   float:right;
-  padding:1rem;
+  padding:1rem 1rem 0 1rem;
   background-color:#FFFFFF;
   margin-top:.5rem;
   margin-left:.5rem;
+  margin-bottom: 0;
   opacity: .9;
 }
 
 figure {
-  margin-left: 0;
   opacity: .9;
 }
 
@@ -199,7 +199,8 @@ a:hover {
 }
 
 img { 
-  clear: both;
+  clear:both;
+  margin-left: 15rem;
   width: 30rem;
   padding: .5rem 0 .5rem .5rem;
 
