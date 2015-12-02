@@ -81,7 +81,7 @@ header {
   width:50%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
-  float:left;
+  float: left;
   margin-top: 0;
   margin-bottom: 0;
 
@@ -91,7 +91,7 @@ article {
   width:50%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
-  float:left;
+  float: left;
   margin-top: 0;
   margin-bottom: 0;
   opacity: .9;
@@ -103,6 +103,7 @@ article {
   width:80%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
+  float: left;
   margin-top: 0;
   margin-bottom: 0;
   opacity: .9;
@@ -122,7 +123,7 @@ li {
 
 .topaside {
   width:45%;
-  float:right;
+  float: right;
   padding:.5rem;
   background-color:#FFFFFF;
   margin-top: 1rem;
@@ -136,7 +137,7 @@ li {
 
 aside {
   width:45%;
-  float:right;
+  float: right;
   padding:1rem 1rem 0 1rem;
   background-color:#FFFFFF;
   margin-top:.5rem;
