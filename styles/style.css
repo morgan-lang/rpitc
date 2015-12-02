@@ -1,30 +1,16 @@
-/*Setting the root font and scaling 1em to equal 10px.*/
-
 html { 
-  font-family: helvetica,arial,sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 62.5%; 
 } 
 
-/*Major components*/
-
-.numberCircle {
-    border-radius: 50%;
-
-    width: 3rem;
-    height: 3rem;
-    padding: .4rem;
-
-    background: #fff;
-    border: .1rem solid #666;
-    color: #666;
-    text-align: center;
-
-    font: 2.5rem Arial, sans-serif;
+body {
+  margin-top: .5rem; 
 }
+
 
 select {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 2.1rem;
   color: #333333;
   
@@ -32,69 +18,72 @@ select {
 }
 
 h1 {
-  background-color: dodgerblue;
+  background-color: #1469CC;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 3.1rem;
   color: white;
   
 }
 
 .headerh1 {
-  background-color: dodgerblue;
+  background-color: #1469CC;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 2.1rem;
-  color: white;
-}
-
-.headerparagraph {
-  background-color: dodgerblue;
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.3rem;
   color: white;
 }
 
 h2 {
-  background-color: dodgerblue;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 2.5rem;
+  background-color: #1469CC;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 2.6rem;
   color: white;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 1rem .5rem 1rem .5rem;
 }
 
 h3 {
   background-color: skyblue;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 2rem;
-  padding: 1.5rem 1rem 1.5rem 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+  padding: .5rem .5rem .5rem .5rem;
   color: white;
 }
 
+
 code {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 2.1rem;
   color: #333333;
 }
-
-p {
-  font-size: 1.5rem;
+p.asideparagraph {
+  font-family: 'Lora', serif;
+  font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.6rem;
-  color: #333333;
+  color: #324A65;
+ 
 }
+
+p {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: #324A65;
+}
+
+
 
 header {
   width:100%;
-  background-color:dodgerblue;
-  padding:1rem;
+  background-color: #1469CC;
+  padding: .5rem .5rem .5rem .5rem;
   clear:both;
   float:left;
-  position: fixed;
   margin-top: .5rem;
   margin-bottom: .5rem;
 }
@@ -102,48 +91,51 @@ header {
 .toparticle {
   width:50%;
   background-color:#FFFFFF;
-  padding:1rem;
-  clear:both;
+  padding: .1rem .5rem 0 0;
   float:left;
-  margin-top: 17rem;
+  margin-top: 1rem;
   margin-bottom: .5rem;
+  border-style: solid;
+  border-width: 0 .2rem .2rem 0;
+  border-color: lightgray;
+  border-radius: 1rem;
 }
 
 article {
   width:50%;
   background-color:#FFFFFF;
-  padding:1rem;
-  clear:both;
+  padding: .1rem .5rem 0 0;
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
+  border-style: solid;
+  border-width: 0 .2rem .2rem 0;
+  border-color: lightgray;
+  border-radius: 1rem;
 }
 
 /*Nav and lists*/
 
-nav {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.6rem;
-  color: #333333;   
-}
 
 li {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
-  line-height: 1.6rem;
+  line-height: 1.8rem;
   color: #333333;   
 }
 
-/*Minor components*/
 
 .topaside {
   width:45%;
   float:right;
-  padding:1rem;
+  padding:.5rem;
   background-color:#FFFFFF;
-  margin-top:17rem;
+  margin-top: 1rem;
   margin-left:.5rem;
+  border-style: solid;
+  border-width: .2rem;
+  border-color: lightgray;
+  border-radius: 1rem;
 }
 
 aside {
@@ -156,11 +148,10 @@ aside {
 }
 
 footer {
-  width:100%;
-  background-color:dodgerblue;
-  border:.1rem solid #333333;
-  box-shadow: 0rem 0rem .1rem .1rem #333333;
+  width:96%;
+  background-color: #1469CC;
   padding:1rem;
+  clear:both;
   float:left;
   margin-top: .5rem;
   margin-bottom: .5rem;
@@ -168,24 +159,45 @@ footer {
 
 a:link {
   text-decoration: none;
-  color: #333333;
+  color: #1469CC;
   font-weight: 700;
 }
 
 a:visited {
     text-decoration: none;
-    color: #333333;
+    color: #1469CC;
     font-weight: 700;
 }
 
 a:hover {
-  color: #6B0000;
-  text-decoration: underline;
-  font-weight: 600;
+  color: #1469CC;
+  text-decoration: none;
+  font-weight: 900;
 }
 
 img { 
-  border:.1rem solid #333333;
-  box-shadow:0rem 0rem .1rem .1rem #333333;
+  width: 30rem;
+  padding: 1rem 0 1rem 1rem;
+
+}
+
+h4 {  
+  background-color: #324A65;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.9rem;
+  padding: 1rem .5rem 1rem .5rem;
+  color: white;
+  border-radius: 1rem;
+}
+
+h5 {  
+  background-color: #698BB2;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+  padding: .5rem .5rem .5rem .5rem;
+  color: white;
+  border-radius: 1rem;
 }
 

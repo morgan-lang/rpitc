@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
       <title>A Raspberry Pi Thin Client Computing Environment</title>
         <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lora%7CRoboto:400,500,700,900' rel='stylesheet' type='text/css'>
   </head>
   
     <body>
@@ -14,19 +15,12 @@
           <header>
             <h1>A Raspberry Pi Thin Client Computing Environment</h1>
             <h1 class="headerh1">Design, Configuration, Installation, and Testing</h1>
-            <p class="headerparagraph">A tutorial on planning, building, and testing a thin-client environment using the Raspberry Pi low-power computing platform.</p>
           </header>
           
           <article class="toparticle">
-          <h2>Contents</h2>
-            <span><h3><div class="numberCircle">1</div>  <a href="#overview">Virtualization Overview</a></h3></span>
-          <ul style="list-style-type:disc">
-            <li>What is virtualization?</li>
-            <li>why RPiTC2?</li>
-            <li>why KVM?</li>
-          </ul>   
+          <h2>Contents</h2> 
             
-            <h3>2  <a href="#planning">Planning your Deployment</a></h3>
+            <h3><a href="#planning">① Planning your Deployment</a></h3>
           <ul style="list-style-type:disc">
             <li>assess your needs</li>
             <li>calculate necessary hardware specifications</li>
@@ -35,7 +29,7 @@
             <li>stage your equipment</li>
           </ul> 
             
-              <h3>3  <a href="#installation">RPiTC2 Installation</a></h3>
+              <h3><a href="#installation">② RPiTC2 Installation</a></h3>
           <ul style="list-style-type:disc">
             <li>download</li>
             <li>extract</li>
@@ -44,46 +38,55 @@
             <li>configure</li>
           </ul> 
             
-              <h3>4  <a href="#testing">Testing</a></h3>
+              <h3><a href="#testing">③ Testing</a></h3>
           <ul style="list-style-type:disc">
             <li>thin client benchmark testing</li>
             <li>server benchmark testing</li>
           </ul> 
             
-            <h3>5  <a href="#conclusion">Conclusion</a></h3>
+            <h3><a href="#conclusion">④ Conclusion</a></h3>
             
           </article>
       
           <aside class="topaside">
-          <h3>New to the Raspberry Pi? Start here.</h3>
-          <p>The Raspberry Pi has a fascinating history.</p>
+          <h4>New to the Raspberry Pi? Start here.</h4>
+          <p class="asideparagraph">The Raspberry Pi has a fascinating history.</p>
           <figure>
-          <iframe width="426" height="240"
-          src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0">
+          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="426" height="240" align="left">
           </iframe>
           <figcaption>The history of the Raspberry Pi</figcaption>
           </figure>
+            
+             <h4>Virtualization Overview</h4>
+            <h5>What is Virtualization?</h5>
+         
+          <p class="asideparagraph">Typical work environments still rely on traditional workstation/server computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files.</p> 
+            <p class="asideparagraph">In this typical scenario, the workstations do the computing, and the file server acts as a storage receptacle. This structure is inefficient, placing power-hungry workstations at every desk and creating a high degree of unused computing overhead.</p>
+            <img src="./images/workstation-network-blue.png" alt="diagram of power-hungry workstation environment" align="right">
+            <p class="asideparagraph">Virtualization refers to the process of abstracting and presenting a virtual representation of computer hardware.</p> 
+            <p class="asideparagraph">In our thin-client environment, this is done in order to allow a centralized server (called a hypervisor) to simultaneously divide its heavy computing power between multiple external, low-power computers called thin clients, each of which interacts with the virtual hardware allocated to it.</p>
+            <p class="asideparagraph">This structure allows the server to run all of the computing tasks and allows the client to maintain a passive role. This centralizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is the most power-efficient way to provide computing resources to an organization</p>
+            <img src="./images/rpitc-network-blue.png" alt="diagram of power-efficient rpitc environment" align="right">
+            
+            <h5>Why RPiTC2?</h5>
+            <p class="asideparagraph">The <strong>Raspberry Pi</strong> leverages the low cost and low power consumption of ARM-processor-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry GUIs. RpiTC's solution is to use the Pi as a thin client, offloading the computing power to a hypervisor.</p>
+            <p class="asideparagraph">Because the Pi is so inexpensive and RpiTC2 is free and open-source, the savings over even the least expensive commercially-available thin clients are tremendous. For large enterprises buying in volume, the cost of the Pi is low enough to be considered disposable. For users who need smaller scale deployments, Pis represent the most cost-effective way to move to a thin-client computing environment.</p>
+            <h5>Why KVM?</h5>
+            <p class="asideparagraph">There are many commercial offerings in the hypervisor marketplace. Xen and KVM, by contrast, are open-source hypervisors that are as fully-featured as commercial equivalents offered by VMWare and Microsoft. For organizations running critical systems, enterprise-level support contracts are available from Citrix, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the Open Virtualization Alliance. For the limited scope of this project, we have chosen KVM.</p>
           </aside>
           
           <article>
           
-          <h2 id="overview">1. Virtualization Overview</h2>
-            <h3>What is Virtualization?</h3>
          
-          <p>The contemporary workplace relies on traditional workstation/file server computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files. The workstations do the computing, and the file server acts as a receptacle. This structure is inefficient, placing power-hungry workstations at every desk, creating a high degree of unused computing overhead (see figure 1).</p>
-            <p>Virtualization refers to the process of abstracting and presenting a virtual representation of computer hardware in order to allow a centralized server (called a hypervisor) to simultaneously divide its heavy computing power between multiple external, low-power computers called thin clients, each of which interacts with the virtual hardware allocated to it. This allows the server to run all of the computing tasks and allows the client to maintain a passive role. This centralizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is the most power-efficient way to provide computing resources to an organization (see figure 2).</p>
             
-            <h3>Why RPiTC2?</h3>
-            <p>The <strong>Raspberry Pi</strong> leverages the low cost and low power consumption of ARM-processor-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry GUIs. RpiTC's solution is to use the Pi as a thin client, offloading the computing power to a hypervisor.</p>
-            <p>Because the Pi is so inexpensive and RpiTC2 is free and open-source, the savings over even the least expensive commercially-available thin clients are tremendous. For large enterprises buying in volume, the cost of the Pi is low enough to be considered disposable. For users who need smaller scale deployments, Pis represent the most cost-effective way to move to a thin-client computing environment.</p>
-            <h3>Why KVM?</h3>
-            <p>There are many commercial offerings in the hypervisor marketplace. Xen and KVM, by contrast, are open-source hypervisors that are as fully-featured as commercial equivalents offered by VMWare and Microsoft. For organizations running critical systems, enterprise-level support contracts are available from Citrix, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the Open Virtualization Alliance. For the limited scope of this project, we have chosen KVM.</p>
-            
-            <h2 id="planning">2. Planning your Deployment</h2>
+            <h2 id="planning">① Planning your Deployment</h2>
             <h3>Assess your Needs</h3>
-            <p>If you are creating your thin-client network at home, this section will be less important. If you are creating a test environment at work and are concerned about appropriate resource allocation, you should take care to plan your deployment using this guide.</p>
+            <p> If you are creating a test environment at work and are concerned about appropriate resource allocation, you should take care to plan your deployment using this guide.If you are creating your thin-client network at home, this section will be less important.</p>
             <h3>Calculate Necessary Hardware Specifications</h3>
-            <p>There are two main computing resources that need to be carefully allocated in a virtual environment: RAM and processor power. Of the two, RAM is significantly more important, and will determine the absolute limit of virtual hosts possible. As a general rule, you should acquire and install the most RAM you can afford on your server. In our lab, we are working with a Thinkserver TS140, which has a maximum RAM capacity of 32GB. If we want each of our thin clients to use 2GB of RAM, and we want to reserve 8GB for the server to use, you can see that we can run a maximum of 4 thin clients. This is a very conservative allocation plan that will ensure that a large amount of overhead is available. For an initial testing environment, this is fine. As you progress into final testing stages, you will begin optimizing resources and incrementally increasing the number of clients to achieve the best balance of client and server performance.</p>
+            <p>There are two main computing resources that need to be carefully allocated in a virtual environment: RAM and processor power.</p> 
+            <p>Of the two, RAM is significantly more important, and will determine the absolute limit of virtual hosts possible. As a general rule, you should acquire and install the most RAM you can afford on your server.</p> 
+            <p>In our lab, we are working with a Thinkserver TS140, which has a maximum RAM capacity of 32GB. If we want each of our thin clients to use 2GB of RAM, and we want to reserve 8GB for the server to use, you can see that we can run a maximum of 4 thin clients. This is a very conservative allocation plan that will ensure that a large amount of overhead is available.</p> 
+            <p>For an initial testing environment, this conservative estimate is fine. As you progress into final testing stages, you will begin optimizing resources and incrementally increasing the number of clients to achieve the best balance of client and server performance.</p>
             <p>Note: about RAM and 32-bit processors</p>
             
             <h3>Plan your Network Topography</h3>
@@ -98,8 +101,9 @@
           </ul> 
             
             <h3>Acquire your Equipment</h3>
-            <p>You should acquire a server that meets your initial testing needs, with 2GB of RAM per client. Note that this number is for initial testing purposes and the actual number of supported clients will increase during the final testing phase. You should acquire the minimum number of RPis you will need for initial testing, with the understanding that the number of RPis in use will increase during final testing. </p>
-            <p>This guide will not detail the configuration of your virtualization server. For our testing environment, we are using a Thinkserver TS140 with a quad-core 3.2 Ghz Xeon CPU and 16 GB of RAM, accompanied by one RPi. For a detailed guide on configuring KVM to run on CentOS 7, see http://jensd.be/207/linux/install-and-use-centos-7-as-kvm-virtualization-host</p>
+            <p>You should acquire a server that meets your initial testing needs, with 2GB of available RAM per client. Note that this number is for initial testing purposes and the actual number of supported clients will increase during the final testing phase.</p>
+            <p>You should acquire the minimum number of RPis you will need for initial testing, with the understanding that the number of RPis in use will increase during final testing. </p>
+            <p>For our testing environment, we are using a Centos 7/KVM-based Thinkserver TS140 with a quad-core 3.2 Ghz Xeon CPU and 16 GB of RAM, accompanied by one RPi. For instructions on configuring your server, follow <a href="http://jensd.be/207/linux/install-and-use-centos-7-as-kvm-virtualization-host" target="_blank">this excellent configuration guide</a> for configuring KVM on CentOS 7.</p>
             <p>The minimum required equipment list is:</p>
             <ul style="list-style-type:disc">
             <li>1 server (64-bit processor, minimum of 8GB RAM)</li>
@@ -124,25 +128,23 @@
             <ul style="list-style-type:disc">
             <li>Power on your staging computer and open a web browser</li>
             <li>Insert the formatted microSD card into the USB adapter, then insert the USB adapter into an available USB port on your workstation or laptop. Windows machines should mount the USB drive automatically. </li>
-              <p>NOTE: To download Win32diskimager, go here:
-               <br> http://sourceforge.net/projects/win32diskimager/files/latest/download</p>
-              <br>
-              <p>When prompted, click Save.</p>
+            <li><a href="http://sourceforge.net/projects/win32diskimager/files/latest/download" target="_blank">Download Win32diskimager</a>. When prompted, select Save.
+             </li>
               
             <li>Install Win32DiskImager. This will create a program group called Image Writer.</li>
               <p>Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</p>
-              <li>Download and install 7_Zip by going here: http://www.7-zip.org/download.html</li>
+              <li><a href="http://www.7-zip.org/download.html" target="_blank">Download and install 7_Zip</a>.</li>
               <p>Note: when prompted, click Save File, then install 7-Zip.</p>
-              <li>Attach the USB keyboard and mouse to your RPi2</li>
-              <li>Attach a computer monitor to the RPi2 using the HDMI cable</li>
+              <li>Attach the USB keyboard and mouse to your RPi2.</li>
+              <li>Attach a computer monitor to the RPi2 using the HDMI cable.</li>
               <p>Note: do not power on the RPi2 yet.</p>
               
               </ul> 
               
-              <h2 id="installation">3. PRiTC2 Installation</h2>
+              <h2 id="installation">② PRiTC2 Installation</h2>
               <h3>Download</h3>
             <ul style="list-style-type:disc">
-            <li>Using the browser you opened on your staging computer, download the RPiTC2 operating system from http://rpitc.blogspot.com/p/download.html</li>
+              <li>Using the browser you opened on your staging computer, download the <a href="http://rpitc.blogspot.com/p/download.html" target="_blank">RPiTC2 operating system.</a></li>
             <li>When prompted to open or save the RAR file, select Save.</li>
               
             </ul> 
@@ -150,7 +152,7 @@
                  <h3>Extract</h3>
             <ul style="list-style-type:disc">
             <li>Extract the RAR file you just downloaded using 7-Zip. </li>
-            <li>Select the path to the .rar file, then select an output path for the extracted files. Below, we are extracting to the Downloads folder.</li>
+            <li>Select the path to the .rar file, then select an output path for the extracted files. Here, we are extracting to the Downloads folder.</li>
               
             </ul> 
             
@@ -158,7 +160,7 @@
             <ul style="list-style-type:disc">
             <li>Install the PRiTC2 operating system using Win32DiskImager.</li>
             <li>Locate the path to the file you extracted in the previous step, then install the image on the MicroSD card.</li>
-              <p>Note: see http://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program </p>
+              <p>Note: see <a href="http://elinux.org/RPi_Easy_SD_Card_Setup#Using_the_Win32DiskImager_program" target="_blank">this useful information regarding extraction and installation of images to RPis</a>. </p>
               
             </ul> 
             
@@ -171,21 +173,21 @@
             </ul> 
             
               <h3>Configure</h3>
-            <ul style="list-style-type:disc">
-            <li>Once you have booted the RPiTC2 operating system, you will see the default desktop (see figure 3) </li>
-            <li>To access configuration settings and automatically start a virtual desktop on startup, select Session and Startup from the Settings menu</li>
-              </ul> 
-              <p>Most of these settings are typical for GUI-enabled Linux distributions. However, the RPiTC2 operating system contains two scripts that help automate the startup and connection process for accessing your virtual desktop.
-                <br>
-                Autostart automatically starts a connection client.
-                <br>
-Keep Me Up! Automatically starts a connection client and maintains the connection.
-                <br>
-To automatically start and maintain your connectivity to your virtual desktop, you must configure these two scripts.
-
-              </p>
             
-             <h2 id="testing">4. Testing</h2>
+            <p>Once you have booted the RPiTC2 operating system, you will see the default desktop (see figure 3). The RPiTC OS comes prepackaged with all the remote connection utilities and scripts users might need to connect to their hypervivors.</p>
+            
+            <p>To access configuration settings and automatically start a remotely-hosted virtual desktop on startup:</p>
+                 <ul style="list-style-type:disc">
+                <li>select Session and Startup from the Settings menu</li>
+                   
+                   <li>Populate the connection client with the username, password, and port settings you configured when creating your virtual machines on the server.</li>
+      
+              <li>Select Autostart for the type of connection you configured in your KVM server. This will automatically start the client and connect to your server.</li>
+                   
+                
+            </ul>
+            
+             <h2 id="testing">③ Testing</h2>
               <h3>Thin Client Testing</h3>
             <ul style="list-style-type:disc">
             <li>If using multiple clients, begin by connecting all clients concurrently using the RAM allocation created in step 1</li>
@@ -221,15 +223,13 @@ To automatically start and maintain your connectivity to your virtual desktop, y
               
               <p>It is up to you to determine which of these methods is most suitable for you based on your budget.</p>
               
-              <h2 id="conclusion">5. Conclusion</h2>
+              <h2 id="conclusion">④ Conclusion</h2>
               <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable. The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p>
             
         <footer>
           
           <p>&copy; 2015 Morgan Lang</p>
-            <nav>
-              <a href="https://github.com/morgan-lang/">My GitHub Repositories</a>
-            </nav>
+
         </footer>
   
     </body>       
