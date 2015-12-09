@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>A Raspberry Pi Thin Client Computing Environment</title>
+	<meta name="description" content="This is the Responsive Grid System, a quick, easy and flexible way to create a responsive web site.">
+	<meta name="keywords" content="responsive, grid, system, web design">
+
+	<meta name="author" content="www.grahamrobertsonmiller.co.uk">
+
+	<meta http-equiv="cleartype" content="on">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<!-- Responsive and mobile friendly stuff -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="styles/all-gridstyles.css" media="all">
+  <link href='https://fonts.googleapis.com/css?family=Lora%7CRoboto:400,500,700,900' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+
+		<div class="header">
+          <h1 class="headerh1">A Raspberry Pi Thin Client Computing Environment</h1>
+          <h1 class="headerh1">Design, Configuration, Installation, and Testing</h1>
+		</div>
+  
+  <div class="content">
+
+				<div class="section group">
+				          
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_2">
+					<article class="toparticle">
+          <h2>Contents</h2> 
+            
+            <h3><a href="#planning">① Planning your Deployment</a></h3>
+          <ul style="list-style-type:disc">
+            <li>assess your needs</li>
+            <li>calculate necessary hardware specifications</li>
+            <li>plan your network topography</li>
+            <li>acquire your equipment</li>
+            <li>stage your equipment</li>
+          </ul> 
+            
+              <h3><a href="#installation">② RPiTC2 Installation</a></h3>
+          <ul style="list-style-type:disc">
+            <li>download</li>
+            <li>extract</li>
+            <li>install</li>
+            <li>boot</li>
+            <li>configure</li>
+          </ul> 
+            
+              <h3><a href="#testing">③ Testing</a></h3>
+          <ul style="list-style-type:disc">
+            <li>thin client benchmark testing</li>
+            <li>server benchmark testing</li>
+          </ul> 
+            
+            <h3><a href="#conclusion">④ Next Steps</a></h3>
+            
+          </article>
+					</div>
+					<div class="col span_1_of_2">
+					<aside class="topaside">
+          <h4>New to the Raspberry Pi? Start here.</h4>
+          <figure>
+          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="80%">
+          </iframe>
+          <figcaption>Introduction and overview of the Raspberry Pi</figcaption>
+          </figure>
+            
+             <h4>New to Virtualization? Start here.</h4>
+            <h5>What is Virtualization?</h5>
+         
+          <p class="asideparagraph">Typical work environments still rely on traditional <a href="https://en.wikipedia.org/wiki/Workstation#Workstation_definition" target="_blank">workstation</a>/<a href="https://en.wikipedia.org/wiki/Server_(computing)" target="_blank">server</a> computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files.</p> 
+            <p class="asideparagraph">In this scenario, the workstations do the computing, and the file server acts as a storage receptacle for files. This structure is inefficient, placing power-hungry workstations at every desk and creating a high degree of unused <a href="https://en.wikipedia.org/wiki/Overhead_(computing)" target="_blank">computing overhead</a> on the server side.</p>
+            <img src="./images/workstation-network-processed.png" alt="diagram of power-hungry workstation environment">
+            <p class="asideparagraph">Virtualization refers to the process of abstracting and presenting a <a href="https://en.wikipedia.org/wiki/Hardware_virtualization#Full_virtualization" target="_blank">virtual representation of computer hardware</a>.</p> 
+            <p class="asideparagraph">In our <a href="https://en.wikipedia.org/wiki/Thin_client" target="_blank">thin-client</a> environment, this is done in order to allow a centralized server (called a <a href="https://en.wikipedia.org/wiki/Hypervisor" target="_blank">hypervisor</a>) to simultaneously divide its heavy computing power between multiple external, low-power thin clients, each of which interacts with the virtual hardware allocated to it.</p>
+            <p class="asideparagraph">This structure allows the server to run all of the computing tasks, consuming previously unused overhead, and allows the client to maintain a passive, low-power presence.
+              <p class="asideparagraph">This also centralizes and organizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is a very efficient way to provide computing resources to an organization</p>
+            <p><img src="./images/rpitc-network-processed.png" alt="diagram of power-efficient rpitc environment"></p>
+            
+            <h5>Why RPiTC2?</h5>
+            <p class="asideparagraph">The <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pi</a> leverages the low cost and low power consumption of <a href="https://en.wikipedia.org/wiki/ARM_architecture" target="_blank">ARM-processor</a>-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry <a href="https://en.wikipedia.org/wiki/Graphical_user_interface" target="_blank">GUI</a>s. The <a href="http://rpitc.blogspot.com/" target="_blank">Raspberry Pi Thin-Client Project's</a> solution is to use the Raspberry Pi as a thin client, offloading the computing power to a hypervisor.</p>
+            <p class="asideparagraph">Note: for the remainder of this discussion and throughout this document, we will refer to the Raspberry Pi as the <strong>RPi</strong> and the Raspberry Pi Thin-Client Project as <strong>RPiTC</strong>.</p>
+            <p class="asideparagraph">Because the RPi is so inexpensive and RpiTC is free and open-source, the savings over even the least expensive commercially-available thin clients are tremendous. For large enterprises buying in volume, the cost of the RPi is low enough to be considered disposable. For users who need smaller scale deployments, RPis represent the most cost-effective way to move to a thin-client computing environment.</p>
+            <h5>Why KVM?</h5>
+            <p class="asideparagraph">Currently, the hypervisor market is dominated by a only a handful of commercial offerings. <a href="http://www.xenproject.org/" target="_blank">Xen</a> and <a href="http://www.linux-kvm.org/page/Main_Page" target="_blank">KVM</a>, by contrast, are open-source hypervisors that are nearly as fully-featured as commercial equivalents offered by <a href="https://www.vmware.com/products/vsphere/features/esxi-hypervisor" target="_blank">VMWare</a> and <a href="http://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx" target="_blank">Microsoft</a>. For organizations running critical systems, enterprise-level support contracts are available from <a href="http://www.citrix.com/" target="_blank">Citrix</a>, Xen's parent company. For those who do not need support contracts, the product is free. KVM, by contrast, does not offer support contracts and is fully open source, developed by the <a href="https://openvirtualizationalliance.org/" target="_blank">Open Virtualization Alliance</a>. For the limited scope of this project, we have chosen <strong>KVM</strong>.</p>
+          </aside>
+					</div>
+				</div>
+  
+  				<div class="section group">
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+				</div>
+  				<div class="section group">
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+					<div class="col span_1_of_2">
+					Domestic cats love to play, this is especially true with kittens who love to chase toys and play fight. Play fighting among kittens may be a way for them to practice and learn skills for hunting and fighting.
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Three Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_3">
+					Cats can be lethal hunters and very sneaky, when they walk their back paws step almost exactly in the same place as the front paws did beforehand, this keeps noise to a minimum and limits visible tracks.
+					</div>
+					<div class="col span_1_of_3">
+					1 of 3
+					</div>
+					<div class="col span_1_of_3">
+					1 of 3
+					</div>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Four Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_4">
+					1 of 4
+					</div>
+					<div class="col span_1_of_4">
+					1 of 4
+					</div>
+					<div class="col span_1_of_4">
+					1 of 4
+					</div>
+					<div class="col span_1_of_4">
+					A group of cats is called a clowder, a male cat is called a tom, a female cat is called a molly or queen while young cats are called kittens.
+					</div>
+				</div>
+  
+				<div class="section group">
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+					<div class="col span_1_of_2">
+					1 of 2
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Five Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_5">
+					1 of 5
+					</div>
+					<div class="col span_1_of_5">
+					1 of 5
+					</div>
+					<div class="col span_1_of_5">
+                      <img src="http://breadedcat.com/wp-content/uploads/2012/02/cat-breading-tutorial-004.jpg" width=100%>
+					</div>
+					<div class="col span_1_of_5">
+					1 of 5
+					</div>
+					<div class="col span_1_of_5">
+					1 of 5
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Six Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+					<div class="col span_1_of_6">
+					1 of 6
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Seven Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+					<div class="col span_1_of_7">
+					1 of 7
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Eight Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+					<div class="col span_1_of_8">
+					1 of 8
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Nine Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+					<div class="col span_1_of_9">
+					1 of 9
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Ten Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+					<div class="col span_1_of_10">
+					1 of 10
+					</div>
+				</div>
+
+				<div class="section group">
+				<h3>Eleven Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+					<div class="col span_1_of_11">
+					1 of 11
+					</div>
+				</div>
+
+
+				<div class="section group">
+				<h3>Twelve Columns</h3>
+				</div>
+
+				<div class="section group">
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+					<div class="col span_1_of_12">
+					1 of 12
+					</div>
+				</div>
+    </div>
+</body>
+</html>

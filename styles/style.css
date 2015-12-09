@@ -1,30 +1,34 @@
 html { 
-  font-family: 'Roboto', sans-serif;
-  font-size: 62.5%; 
+  font-family: 'Droid', sans-serif;
+  font-size: .9em;
 } 
 
 body {
   margin-top: .5rem; 
-  background-image: url(../images/rpi-glamour-shot.png)
 }
 
 h1 {
-  background-color: #1469CC;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 3.1rem;
-  color: white;
+  font-size: 10rem;
+  line-height: 8rem;
+  color: #BF4033;
   opacity: .9;
   
 }
 
 .headerh1 {
-  background-color: #1469CC;
-  font-size: 2rem;
+  font-size: 3.5rem;
   font-weight: 700;
-  line-height: 2.1rem;
+  line-height: 4.1rem;
+  color: #BF4033;
+  opacity: .9;
+}
+
+.headerh2 {
+  font-size: 1.7rem;
+  line-height: 1.8rem;
   color: white;
   opacity: .9;
+  margin: 0 0 1rem 0;
 }
 
 h2 {
@@ -48,7 +52,7 @@ h3 {
 }
 
 .asideparagraph {
-  font-family: 'Lora', serif;
+  font-family: 'Droid', serif;
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.6rem;
@@ -58,7 +62,7 @@ h3 {
 }
 
 p {
-  font-family: 'Lora', serif;
+  font-family: 'Droid', serif;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.8rem;
@@ -67,23 +71,25 @@ p {
 }
 
 header {
-  width:100%;
-  background-color: #1469CC;
+  width:85%;
+  background-color: white;
   padding: .5rem .5rem .5rem .5rem;
   clear:both;
   float:left;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin: 0 0 0 10rem;
   opacity: .9;
+  background-image: url(../images/rpi-large.jpg);
+  background-repeat: no-repeat;
+  background-color: #1469CC;
+  background-blend-mode: color-burn;
 }
 
 .toparticle {
-  width:50%;
+  width:86%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   float: left;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 0 0 10rem;
 
 }
 
@@ -92,21 +98,17 @@ article {
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-  opacity: .9;
+  margin: 0 0 0 10rem;
 
 }
 
 
 .mainarticle {
-  width:80%;
+  width:50%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-  opacity: .9;
+  margin: 0 0 0 10rem;
 
 }
 
@@ -117,36 +119,28 @@ li {
   font-weight: 400;
   line-height: 2.9rem;
   color: black;
-  opacity: .9;
 }
 
 
 .topaside {
-  width:45%;
+  width:25%;
   float: right;
-  padding:.5rem;
+  padding: 0 1 0 1;
   background-color:#FFFFFF;
-  margin-top: 1rem;
-  margin-left:.5rem;
-  border-style: solid;
-  border-width: .2rem;
-  border-color: lightgray;
-  border-radius: 1rem;
-  opacity: .9;
+  margin: 0 10rem 0 0;
 }
 
 aside {
-  width:45%;
+  width:25%;
   float: right;
-  padding:1rem 1rem 0 1rem;
+  padding: 0 1 0 1;
   background-color:#FFFFFF;
-  margin-top:.5rem;
-  margin-left:.5rem;
-  margin-bottom: 0;
-  opacity: .9;
+  margin: 0 10rem 0 0;
+
 }
 
 figure {
+  width: 100%;
   opacity: .9;
 }
 
@@ -183,8 +177,7 @@ a:hover {
 
 img { 
   clear:both;
-  margin-left: 10rem;
-  width: 30rem;
+  width: 100%;
   padding: .5rem 0 .5rem .5rem;
 
 }

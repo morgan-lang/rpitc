@@ -6,18 +6,30 @@
     <meta charset="UTF-8">
       <title>A Raspberry Pi Thin Client Computing Environment</title>
         <link rel="stylesheet" type="text/css" href="./styles/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Lora%7CRoboto:400,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="styles/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono%7CDroid+Serif' rel='stylesheet' type='text/css'>
   </head>
   
     <body>
       <main>
           
           <header>
+            <p>
+            <br>
+            </p>
             <h1>A Raspberry Pi Thin Client Computing Environment</h1>
             <h1 class="headerh1">Design, Configuration, Installation, and Testing</h1>
+            <p>
+            <br>
+            </p>
+            <h2 class="headerh2">A guide to creating your own inexpensive and simple thin-client network</h2>
+            
           </header>
           
           <article class="toparticle">
+            <h2>Introduction</h2>
+            <p>This guide was created to organize and simplify information about using the Raspberry Pi as a thin-client. It provides suggestions for acquiring and configuring hardware and software and well as testing and deploying a thin-client network.</p>
+            <p>If you're just getting started with the Raspberry Pi and virtualization, you may want to check out the <a href="#sidebar">sidebar</a> first.</p>
           <h2>Contents</h2> 
             
             <h3><a href="#planning">① Planning your Deployment</a></h3>
@@ -29,7 +41,7 @@
             <li>stage your equipment</li>
           </ul> 
             
-              <h3><a href="#installation">② RPiTC2 Installation</a></h3>
+              <h3><a href="#installation">② RPiTC Installation</a></h3>
           <ul style="list-style-type:disc">
             <li>download</li>
             <li>extract</li>
@@ -49,14 +61,15 @@
           </article>
       
           <aside class="topaside">
-          <h4>New to the Raspberry Pi? Start here.</h4>
+            <div id="sidebar"></div>
+          <h4><i class="fa fa-info-circle"></i> About the Raspberry Pi</h4>
           <figure>
-          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="426" height="240">
+          <iframe src="https://www.youtube.com/embed/_cviTxswW8c?autoplay=0" width="80%">
           </iframe>
           <figcaption>Introduction and overview of the Raspberry Pi</figcaption>
           </figure>
             
-             <h4>New to Virtualization? Start here.</h4>
+             <h4><i class="fa fa-info-circle"></i> About Virtualization</h4>
             <h5>What is Virtualization?</h5>
          
           <p class="asideparagraph">Typical work environments still rely on traditional <a href="https://en.wikipedia.org/wiki/Workstation#Workstation_definition" target="_blank">workstation</a>/<a href="https://en.wikipedia.org/wiki/Server_(computing)" target="_blank">server</a> computing environments in which files are stored on a company server and each worker uses a workstation to access and change those files.</p> 
@@ -68,7 +81,7 @@
               <p class="asideparagraph">This also centralizes and organizes the computing needs of an organization, allowing for accurate scaling according to actual rather than projected needs. It is a very efficient way to provide computing resources to an organization</p>
             <p><img src="./images/rpitc-network-processed.png" alt="diagram of power-efficient rpitc environment"></p>
             
-            <h5>Why RPiTC2?</h5>
+            <h5>Why RPiTC?</h5>
             <p class="asideparagraph">The <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pi</a> leverages the low cost and low power consumption of <a href="https://en.wikipedia.org/wiki/ARM_architecture" target="_blank">ARM-processor</a>-based mobile phone platforms and reconfigures them into a small-footprint, general-purpose computer appropriate for experimentation and prototyping. Until now, the problem has been that although the Pi is powerful, it cannot efficiently run fully-featured operating systems with memory-hungry <a href="https://en.wikipedia.org/wiki/Graphical_user_interface" target="_blank">GUI</a>s. The <a href="http://rpitc.blogspot.com/" target="_blank">Raspberry Pi Thin-Client Project's</a> solution is to use the Raspberry Pi as a thin client, offloading the computing power to a hypervisor.</p>
             <p class="asideparagraph">Note: for the remainder of this discussion and throughout this document, we will refer to the Raspberry Pi as the <strong>RPi</strong> and the Raspberry Pi Thin-Client Project as <strong>RPiTC</strong>.</p>
             <p class="asideparagraph">Because the RPi is so inexpensive and RpiTC is free and open-source, the savings over even the least expensive commercially-available thin clients are tremendous. For large enterprises buying in volume, the cost of the RPi is low enough to be considered disposable. For users who need smaller scale deployments, RPis represent the most cost-effective way to move to a thin-client computing environment.</p>
@@ -82,14 +95,18 @@
          
             
             <h2 id="planning">① Planning your Deployment</h2>
+            <p>Before we jump in and start connecting and configuring devices, it's important to take a few minutes to think carefully about our planned setting for this deployment. This section takes you through the process of logically allocating existing resources and augmenting them with additional equipment and software where necessary. Once we are sure we have everything we need, we will make the initial equipment connections.</p>
             <h3>Assess your Needs</h3>
             <p> If you are creating a test environment at work and are concerned about appropriate <a href="http://www.researchgate.net/publication/258029655_Priority_based_resource_allocation_model_for_cloud_computing" target="_blank">computing resource allocation</a>, you should take care to plan your deployment using this guide. If you are creating your thin-client network at home, this section will be less important.</p>
             <h3>Calculate Necessary Hardware Specifications</h3>
+            <div id="ramallocation"</div>
             <p>There are two main computing resources that need to be carefully allocated in a virtual environment: <a href="https://en.wikipedia.org/wiki/Random-access_memory" target="_blank">RAM</a> and <a href="https://en.wikipedia.org/wiki/Central_processing_unit#Performance" target="_blank">processor performance</a>.</p> 
             <p>Of the two, RAM is significantly more important, since the amount of available RAM determines the absolute limit of virtual hosts possible. As a general rule, you should acquire and install the most RAM you can afford on your server.</p> 
             <p>In our lab, we are working with a <a href="http://shop.lenovo.com/us/en/systems/servers/towers/thinkserver/ts140/#tab-tech_specs" target="_blank">Thinkserver TS140</a>, which has a maximum RAM capacity of 32GB. If we want each of our thin clients to use 2GB of RAM, and we want to reserve 8GB for the server to use, you can see that we can run a maximum of 4 thin clients. This is a very conservative allocation plan that will ensure that a large amount of overhead is available.</p> 
             <p>For an initial testing environment, this conservative estimate is fine. As you progress into final testing stages, you will begin optimizing resources and incrementally increasing the number of clients to achieve the best balance of client and server performance.</p>
-            <p>Note: about RAM and 32-bit processors</p>
+            <p><i class="fa fa-sticky-note-o"></i>
+</i>
+ about RAM and <a href="http://stackoverflow.com/questions/8869563/how-much-memory-can-be-accessed-by-a-32-bit-machine" target="_blank">32-bit processors</a>.</p>
             
             <h3>Plan your Network Topography</h3>
             
@@ -108,7 +125,7 @@
             <p>The minimum required equipment list is:</p>
             <ul style="list-style-type:disc">
             <li>1 server (64-bit processor, minimum of 8GB RAM)</li>
-            <li>1 RPi2 with power supply and case</li>
+            <li>1 RPi with power supply and case</li>
             <li>1 formatted microSD card</li>
               <li>1 staging computer running Windows Vista, 7, 8, or 10</li>
               <li>USB keyboard</li>
@@ -135,20 +152,29 @@
             <li>Insert the formatted microSD card into the USB adapter, then insert the USB adapter into an available USB port on your workstation or laptop. Windows machines should mount the USB drive automatically. </li>
             <li><a href="http://sourceforge.net/projects/win32diskimager/files/latest/download" target="_blank">Download Win32diskimager</a>. When prompted, select Save.
              </li>  
-            <li>Install Win32DiskImager. This will create a program group called Image Writer. Note: you must right-click the program launcher and select "Run as Administrator" to run this program.</li>
+              <li>Install Win32DiskImager. This will create a program group called Image Writer.
+                <br>
+                <i class="fa fa-exclamation-triangle"></i> You must right-click the program launcher and select "Run as Administrator" to run this program.</li> 
+              
               <li><a href="http://www.7-zip.org/download.html" target="_blank">Download and install 7_Zip</a>. Note: when prompted, click Save File, then install 7-Zip.</li>
               
               
-              <li>Attach the USB keyboard and mouse to your RPi2.</li>
-              <li>Attach a computer monitor to the RPi2 using the HDMI cable. Note: do not power on the RPi2 yet.</li>
+              <li>Attach the USB keyboard and mouse to your RPi.</li>
+              <li>Attach a computer monitor to the RPi using the HDMI cable. 
+                </li>
+              <p>
+<i class="fa fa-exclamation-triangle"></i>
+do not power on the RPi yet.
+                </p>
               
               
               </ul> 
               
-              <h2 id="installation">② PRiTC2 Installation</h2>
+              <h2 id="installation">② RPiTC Installation</h2>
+          <p>In this section, we cover the process of installing and configuring the RPiTC operating system on the RPi. We conclude by connecting to our hypervisor over the network.</p>
               <h3>Download</h3>
             <ul style="list-style-type:disc">
-              <li>Using the browser you opened on your staging computer, download the <a href="http://rpitc.blogspot.com/p/download.html" target="_blank">RPiTC2 operating system.</a></li>
+              <li>Using the browser you opened on your staging computer, download the <a href="http://rpitc.blogspot.com/p/download.html" target="_blank">RPiTC operating system.</a></li>
             <li>When prompted to open or save the RAR file, select Save.</li>
               
             </ul> 
@@ -159,6 +185,7 @@
             <li>Select the path to the .rar file, then select an output path for the extracted files. Here, we are extracting to the Downloads folder.</li>
               
             </ul> 
+          <img src="images/extract-pritc-image.png" alt="Extracting the RpiTC operating system">
             
               <h3>Install</h3>
             <ul style="list-style-type:disc">
@@ -171,29 +198,32 @@
                 <h3>Boot</h3>
             <ul style="list-style-type:disc">
             <li>Unmount or eject your MicroUSB adapter and unplug it from your staging computer. </li>
-            <li>Boot your RPiTC2 by inserting the power adapter. Note: the RPi2 does not have a power switch and must be powered off and on by attaching and removing the power supply. </li>
+            <li>Boot your RPiTC by inserting the power adapter. Note: the RPi does not have a power switch and must be powered off and on by attaching and removing the power supply. This does not harm the RPi. </li>
               
             </ul> 
             
               <h3>Configure</h3>
             
-            <p>Once you have booted the RPiTC2 operating system, you will see the default desktop (see figure 3). The RPiTC OS comes prepackaged with all the remote connection utilities and scripts users might need to connect to their hypervivors.</p>
+            <p>Once you have booted the RPiTC operating system, you will see the default desktop.</p>
+          <img src="images/rpitc-desktop.png" alt="The Raspberry Pi Thin Client Desktop">
+          <p>The RPiTC OS comes prepackaged with all the remote connection utilities and scripts users might need to connect to their hypervisors.</p>
             
             <p>To access configuration settings and automatically start a remotely-hosted virtual desktop on startup:</p>
                  <ul style="list-style-type:disc">
-                <li>select Session and Startup from the Settings menu</li>
+                <li>select <b>Session and Startup</b> from the <b>Settings</b> menu</li>
                    
-                   <li>Populate the connection client with the username, password, and port settings you configured when creating your virtual machines on the server.</li>
+                   <li>Populate the <b>connection client</b> with the username, password, and port settings you configured when <a href="http://jensd.be/207/linux/install-and-use-centos-7-as-kvm-virtualization-host" target="_blank">creating your virtual machines</a> on the server.</li>
       
-              <li>Select Autostart for the type of connection you configured in your KVM server. This will automatically start the client and connect to your server.</li>
+              <li>Select <b>Autostart</b> for the type of connection you configured in your KVM server. This will automatically start the client and connect to your server.</li>
                    
                 
             </ul>
             
              <h2 id="testing">③ Testing</h2>
+          <p>In order to gauge the performance and reliability of our RPiTC environment under heavy load, this section guides you through the process of testing, adjusting, and retesting your client and server. </p>
               <h3>Thin Client Testing</h3>
             <ul style="list-style-type:disc">
-            <li>If using multiple clients, begin by connecting all clients concurrently using the RAM allocation created in step 1</li>
+            <li>If using multiple clients, begin by connecting all clients concurrently using the RAM allocated during the <a href="#ramallocation">initial steps</a> of this guide.</li>
             <li>Determine whether the CPU and RAM of the server can handle significant loads by playing back a remote video file of known bitrate and resolution through each client. This will test the server’s ability to continuously buffer and relay video to each client, a task which is computationally intensive, and which uses significant amounts of RAM. </li>
               <li>If there are no performance problems, re-allocate RAM for each client by removing 512MB. Remember that we originally configured our clients to run on 2GB of RAM, so they will now be using 1.5GB of RAM. Retest the clients using the above method. </li>
               <li>If there are still no noticeable performance issues, reduce the amount of RAM by a further 256MB, testing after each reduction. Once performance issues arise, add 256MB and re-allocate. This will be the final amount of RAM used in deployment.</li>
@@ -205,7 +235,7 @@
             <p>To do this, we will simulate several typical administration tasks to run concurrently with the client testing method described above. </p>
             <ul style="list-style-type:disc">
             <li>Begin by running the video playback test for all attached clients, as above.</li>
-            <li>Then connect to your server using ssh and run some common administrative tasks, such as backup and recovery, parsing logs, patching and updating, and disk health checks.</li>
+            <li>Then connect to your server using ssh and run some common administrative tasks, such as <a href="http://tldp.org/HOWTO/Linux-Complete-Backup-and-Recovery-HOWTO/" target="_blank">backup and recovery</a>, <a href="http://www.thegeekstuff.com/2013/06/compile-linux-kernel/" target="_blank">compliling a custom kernel</a>, <a href="https://www.centos.org/docs/5/html/yum/sn-updating-your-system.html" target="_blank">patching and updating</a>, and disk health checks.</li>
            
             </ul> 
               
@@ -222,8 +252,9 @@
               
               <h2 id="conclusion">④ Next Steps</h2>
               <p>Virtualization offers several advantages over traditional computing environments. It is inexpensive, power efficient, avoids unnecessary computational redundancy, and is scalable.</p>
-          <p>The RPiTC2 project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC2 requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p> 
+          <p>The RPiTC project extends this logic, exploiting the availability of very inexpensive hardware and free, open-source software. Installing and configuring RPiTC requires  simple, easily-available equipment and provides users with a simple method of connecting to their hypervisors.</p> 
           <p>This guide has provided the foundation for exploring the Raspberry Pi, RPiTC, and virtualization. Use it as a starting point for exploring your own hypervisor and thin-client solutions.</p>
+          <p>To hone your skills, try using what you have learned in this guide with a different hypervisor like <a href="https://www.vmware.com/products/vsphere-hypervisor" target ="_blank">VSphere</a>. </p>
           </article>
             
             
