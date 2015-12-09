@@ -71,12 +71,12 @@ p {
 }
 
 header {
-  width:85%;
+  width:100%;
   background-color: white;
-  padding: .5rem .5rem .5rem .5rem;
+  padding: .5rem;
   clear:both;
   float:left;
-  margin: 0 0 0 10rem;
+  margin: 1rem;
   opacity: .9;
   background-image: url(../images/rpi-large.jpg);
   background-repeat: no-repeat;
@@ -88,8 +88,9 @@ header {
   width:86%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
+  clear: both;
   float: left;
-  margin: 0 0 0 10rem;
+  margin: 1rem;
 
 }
 
@@ -98,7 +99,7 @@ article {
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   float: left;
-  margin: 0 0 0 10rem;
+  margin: 1rem;
 
 }
 
@@ -108,7 +109,7 @@ article {
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   float: left;
-  margin: 0 0 0 10rem;
+  margin: 1rem;
 
 }
 
@@ -127,7 +128,7 @@ li {
   float: right;
   padding: 0 1 0 1;
   background-color:#FFFFFF;
-  margin: 0 10rem 0 0;
+  margin: 0 5rem 0 0;
 }
 
 aside {
@@ -135,7 +136,7 @@ aside {
   float: right;
   padding: 0 1 0 1;
   background-color:#FFFFFF;
-  margin: 0 10rem 0 0;
+  margin: 0 5rem 0 0;
 
 }
 
