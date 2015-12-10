@@ -142,7 +142,7 @@ aside {
 
 figure {
   width: 100%;
-  opacity: .9;
+  
 }
 
 footer {
@@ -153,7 +153,7 @@ footer {
   float:left;
   margin-top: 0;
   margin-bottom: 0;
-  opacity: .9;
+  
 }
 
 a:link {
@@ -185,24 +185,22 @@ img {
 
 h4 {  
   background-color: #324A65;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.5rem;
   line-height: 1.9rem;
-  padding: 1rem .5rem 1rem .5rem;
+  padding: .5rem;
   color: white;
   border-radius: 1rem;
-  opacity: .9;
+  
 }
 
 h5 {  
   background-color: #698BB2;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.3rem;
   line-height: 1.7rem;
-  padding: .5rem .5rem .5rem .5rem;
+  padding: .5rem;
   color: white;
   border-radius: 1rem;
-  opacity: .9;
+  
 }
 
 i {
