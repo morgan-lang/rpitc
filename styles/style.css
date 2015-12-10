@@ -71,7 +71,7 @@ p {
 }
 
 header {
-  width:100%;
+  width:97%;
   background-color: white;
   padding: .5rem;
   clear:both;
@@ -85,7 +85,7 @@ header {
 }
 
 .toparticle {
-  width:86%;
+  width:98%;
   background-color:#FFFFFF;
   padding: .1rem .5rem 0 0;
   clear: both;
@@ -158,22 +158,20 @@ footer {
 
 a:link {
   text-decoration: none;
-  color: black;
-  font-weight: 700;
+  color: #BF4033;
   
 }
 
 a:visited {
     text-decoration: none;
-    color: black;
-    font-weight: 700;
+    color: #BF4033;
 
 }
 
 a:hover {
   color: #1469CC;
   text-decoration: none;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 img { 
